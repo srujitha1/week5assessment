@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Simple API",
+    "description": "A simple API to learn how to write OpenAPI Specification"
+  },
+  "schemes": [
+    "http"
+  ],
+  "host": "localhost:8000",
+  "basePath": "/api",
+  "paths": {
+    "/movies": {
+      "get": {
+        "summary": "Gets some movies",
+        "description": "Returns a list containing all movies.",
+        "responses": {
+          "200": {
+            "description": "A list of movie",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/xml",
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "id": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "movies/{id}": {
+      "get": {
+        "summary": "Gets one movie",
+        "description": "Returns a movies with given id.",
+        "responses": {
+          "200": {
+            "description": "A movie",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
